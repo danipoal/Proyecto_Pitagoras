@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <section class="input">
+        <div>
+            
+            
+            <p>Medida primer cateto</p>
+            <input type="number" name="cateto1" id="cateto1">
+            <p>Medida segundo cateto</p>
+            <input type="number" name="cateto2" id="cateto2"><br>           
+            <button onclick="calcular()">Crear</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+        <div>
+            <h3>Cateto A= <span id="ca"></span></h3>
+            <h3>Cateto B= <span id="cb"></span></h3>
+            <h3>Hipotenusa= <span id="ch"></span></h3>
+        </div>
+    </section>
+    <section class="figurin">
+        <canvas id="lienzo" width="1050px" height="450px">
+            Canvas no disponible
+        </canvas>    
+        <script src="script.js"></script>
+    </section>
+</body>
+</html>

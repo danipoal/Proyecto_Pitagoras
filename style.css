@@ -1,0 +1,21 @@
+body{
+    display: flex;
+}
+#lienzo {
+    background-color: rgb(140, 185, 243);
+    margin-top: 100px;
+    margin-left: 200px;
+}
+.figurin {
+    width: 1400px;
+    height: 700px;
+    margin: 0px 1px;
+    background-color: azure;
+    border: solid blue 3px;
+    
+}
+.input {
+    background-color: antiquewhite;
+    width: fit-content;
+    max-width: 177px;
+}
