@@ -1,25 +1,28 @@
-//Para entrar los catetos y que de la hipotenusa    OPERACIONES
-
-//alert("Dime los dos catetos:");
-//const a = prompt()
-//const b = prompt()
-//let c = Math.sqrt(a * a + b * b)
-//alert("La hipotenusa es" + c)
 let a1 = 50;
 let bx = 800;
 let by = 400;
 
+let a;
+let b;
+let c;
+//Angulos
+let z;
+
+
+
+
+
 //Calculadora INPUT
 
 function calcular(){
-    let a= document.getElementById("cateto1").value;
-    let b= document.getElementById("cateto2").value;
+    a= document.getElementById("cateto1").value;
+    b= document.getElementById("cateto2").value;
 
     document.getElementById("ca").innerHTML = a;
     document.getElementById("cb").innerHTML = b;
     
-    let c = Math.sqrt(a * a + b * b)        //Calculamos hipotenusa
-    document.getElementById("ch").innerHTML = c.toFixed(3);
+    c = Math.sqrt(a * a + b * b)        //Calculamos hipotenusa
+    document.getElementById("ch").innerHTML = c.toFixed(3);     //Lo escribimos con innerHTML
 
 
     //Calculo para el canvas
@@ -42,6 +45,9 @@ function calcular(){
 function reset(){
     a1 = 50;
     bx = 800;
+    a = undefined;
+    b = undefined;
+    z = undefined;
     comenzar();
 }
 
@@ -62,42 +68,63 @@ function comenzar() {
     //TRIANGULO
     lienzo.beginPath();
 
-    lienzo.moveTo(250, a1);           //Cordenadas donde comienza a dibujar                   Primer vertice
-    lienzo.lineTo(250,400);         //Desde cordenadas donde esta a nuevas cordenadas       Segundo vertice
-
-
-    //lienzo.moveTo(50,50);           
+    lienzo.moveTo(250, a1);           //Cordenadas donde comienza a dibujar                   Primer vertice        El de arriba
+    lienzo.lineTo(250,400);         //Desde cordenadas donde esta a nuevas cordenadas       Segundo vertice         El de 90º  
     lienzo.lineTo(bx,by);         //Tercer vertice
 
-
-
-
     lienzo.closePath();
-
-    lienzo.lineWidth = 3;
+    lienzo.lineWidth = 3;       //Hacemos el triangulo con mas width
     lienzo.stroke();
 
 
-    //Texto dentro del lienzo
+
+
+
+//----------------------------------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------------------------------//
+    //Texto dentro del lienzo 
 
     lienzo.font = "18px monospace";
     lienzo.fillStyle = "black";
 
     lienzo.lineWidth = 1;
+
+    //Texto longitud de los catetos y la hipotenusa
+
+    let alturaA1 = a1 + (Number(a) / 2);        //Calculo para que el texto se ajuste a la altura del CatetoA
+
+    lienzo.fillText(a, 200, alturaA1);          //CatetoA  
+    console.log(a);
+
+    let amplitudBx = bx - (Number(b) / 2);      //Calculo
+    lienzo.fillText(b, amplitudBx, 430);      //CatetoB
+
+
+    //lienzo.fillText(c, 275, 380);               //Hipotenusa
+
+
+//----------------------------------------------------------------------------------------------------------------//
+    
+//Vertex 2 angulo 90º
+    if(a){
     lienzo.strokeRect(250,380, 20,20);
-    lienzo.fillText("90º", 275, 380);        //Vertex 1 angulo 90º
-    //lienzo.fillText("Hola, mundo!", 50, 50);        //Vertex 2 angulo Z
+    lienzo.fillText("90º", 275, 380);   
+    }
+     
+    
+    
+    
+
+
+
+
+    //Gradosº del vertex 1
+    
+    //lienzo.fillText(z + "º", 250, a1);        //Vertex 1 angulo Z
     //lienzo.fillText("Hola, mundo!", 50, 50);        //Vertex 3 Angulo X
 
 
 }
-
-function angulos(){
-
-}
-
-
-
 
 
 window.addEventListener("load", comenzar, false);
